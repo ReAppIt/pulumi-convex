@@ -1,0 +1,30 @@
+{
+  "name": "@sst-provider/convex",
+  "version": "0.2.0",
+  "description": "The Terraform provider srs/convex as a Pulumi SDK, for SST apps that cannot get it from npm.",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/ReAppIt/pulumi-convex",
+  "main": "bin/index.js",
+  "types": "bin/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@pulumi/pulumi": "3.215.0",
+    "async-mutex": "^0.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18",
+    "typescript": "^4.3.5"
+  },
+  "pulumi": {
+    "resource": true,
+    "name": "terraform-provider",
+    "version": "1.5.1",
+    "parameterization": {
+      "name": "convex",
+      "version": "0.2.0",
+      "value": "eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkudGVycmFmb3JtLmlvL3Nycy9jb252ZXgiLCJ2ZXJzaW9uIjoiMC4yLjAifX0="
+    }
+  }
+}

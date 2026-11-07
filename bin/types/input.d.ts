@@ -1,0 +1,105 @@
+import * as pulumi from "@pulumi/pulumi";
+export interface LogStreamAxiom {
+    /**
+     * Axiom API key. Never returned by the API, so it is kept from configuration and stored in Terraform state.
+     */
+    apiKey?: pulumi.Input<string>;
+    /**
+     * Extra key/value fields attached to every event sent to Axiom.
+     */
+    attributes?: pulumi.Input<{
+        [key: string]: pulumi.Input<string>;
+    }>;
+    /**
+     * Axiom dataset that receives the events.
+     */
+    datasetName?: pulumi.Input<string>;
+    /**
+     * Override for Axiom's ingest endpoint.
+     */
+    ingestUrl?: pulumi.Input<string>;
+    /**
+     * Event topics to subscribe to. Omit to receive all topics, including ones Convex adds later. One or more of: <span pulumi-lang-nodejs="`verification`" pulumi-lang-dotnet="`Verification`" pulumi-lang-go="`verification`" pulumi-lang-python="`verification`" pulumi-lang-yaml="`verification`" pulumi-lang-java="`verification`" pulumi-lang-hcl="`verification`">`verification`</span>, <span pulumi-lang-nodejs="`console`" pulumi-lang-dotnet="`Console`" pulumi-lang-go="`console`" pulumi-lang-python="`console`" pulumi-lang-yaml="`console`" pulumi-lang-java="`console`" pulumi-lang-hcl="`console`">`console`</span>, <span pulumi-lang-nodejs="`functionExecution`" pulumi-lang-dotnet="`FunctionExecution`" pulumi-lang-go="`functionExecution`" pulumi-lang-python="`function_execution`" pulumi-lang-yaml="`functionExecution`" pulumi-lang-java="`functionExecution`" pulumi-lang-hcl="`function_execution`">`functionExecution`</span>, <span pulumi-lang-nodejs="`exception`" pulumi-lang-dotnet="`Exception`" pulumi-lang-go="`exception`" pulumi-lang-python="`exception`" pulumi-lang-yaml="`exception`" pulumi-lang-java="`exception`" pulumi-lang-hcl="`exception`">`exception`</span>, <span pulumi-lang-nodejs="`auditLog`" pulumi-lang-dotnet="`AuditLog`" pulumi-lang-go="`auditLog`" pulumi-lang-python="`audit_log`" pulumi-lang-yaml="`auditLog`" pulumi-lang-java="`auditLog`" pulumi-lang-hcl="`audit_log`">`auditLog`</span>, <span pulumi-lang-nodejs="`schedulerStats`" pulumi-lang-dotnet="`SchedulerStats`" pulumi-lang-go="`schedulerStats`" pulumi-lang-python="`scheduler_stats`" pulumi-lang-yaml="`schedulerStats`" pulumi-lang-java="`schedulerStats`" pulumi-lang-hcl="`scheduler_stats`">`schedulerStats`</span>, <span pulumi-lang-nodejs="`scheduledJobLag`" pulumi-lang-dotnet="`ScheduledJobLag`" pulumi-lang-go="`scheduledJobLag`" pulumi-lang-python="`scheduled_job_lag`" pulumi-lang-yaml="`scheduledJobLag`" pulumi-lang-java="`scheduledJobLag`" pulumi-lang-hcl="`scheduled_job_lag`">`scheduledJobLag`</span>, <span pulumi-lang-nodejs="`currentStorageUsage`" pulumi-lang-dotnet="`CurrentStorageUsage`" pulumi-lang-go="`currentStorageUsage`" pulumi-lang-python="`current_storage_usage`" pulumi-lang-yaml="`currentStorageUsage`" pulumi-lang-java="`currentStorageUsage`" pulumi-lang-hcl="`current_storage_usage`">`currentStorageUsage`</span>, <span pulumi-lang-nodejs="`concurrencyStats`" pulumi-lang-dotnet="`ConcurrencyStats`" pulumi-lang-go="`concurrencyStats`" pulumi-lang-python="`concurrency_stats`" pulumi-lang-yaml="`concurrencyStats`" pulumi-lang-java="`concurrencyStats`" pulumi-lang-hcl="`concurrency_stats`">`concurrencyStats`</span>, <span pulumi-lang-nodejs="`storageApiBandwidth`" pulumi-lang-dotnet="`StorageApiBandwidth`" pulumi-lang-go="`storageApiBandwidth`" pulumi-lang-python="`storage_api_bandwidth`" pulumi-lang-yaml="`storageApiBandwidth`" pulumi-lang-java="`storageApiBandwidth`" pulumi-lang-hcl="`storage_api_bandwidth`">`storageApiBandwidth`</span>, <span pulumi-lang-nodejs="`logStreamEgress`" pulumi-lang-dotnet="`LogStreamEgress`" pulumi-lang-go="`logStreamEgress`" pulumi-lang-python="`log_stream_egress`" pulumi-lang-yaml="`logStreamEgress`" pulumi-lang-java="`logStreamEgress`" pulumi-lang-hcl="`log_stream_egress`">`logStreamEgress`</span>, <span pulumi-lang-nodejs="`customAudit`" pulumi-lang-dotnet="`CustomAudit`" pulumi-lang-go="`customAudit`" pulumi-lang-python="`custom_audit`" pulumi-lang-yaml="`customAudit`" pulumi-lang-java="`customAudit`" pulumi-lang-hcl="`custom_audit`">`customAudit`</span>.
+     */
+    topics?: pulumi.Input<pulumi.Input<string>[]>;
+}
+export interface LogStreamDatadog {
+    /**
+     * Datadog API key. Never returned by the API, so it is kept from configuration and stored in Terraform state.
+     */
+    apiKey?: pulumi.Input<string>;
+    /**
+     * Value for Datadog's <span pulumi-lang-nodejs="`service`" pulumi-lang-dotnet="`Service`" pulumi-lang-go="`service`" pulumi-lang-python="`service`" pulumi-lang-yaml="`service`" pulumi-lang-java="`service`" pulumi-lang-hcl="`service`">`service`</span> field.
+     */
+    service?: pulumi.Input<string>;
+    /**
+     * Datadog site the logs are sent to. One of `US1`, `US3`, `US5`, `EU`, `US1_FED`, `AP1`.
+     */
+    siteLocation?: pulumi.Input<string>;
+    /**
+     * Tags sent with every event via Datadog's <span pulumi-lang-nodejs="`ddtags`" pulumi-lang-dotnet="`Ddtags`" pulumi-lang-go="`ddtags`" pulumi-lang-python="`ddtags`" pulumi-lang-yaml="`ddtags`" pulumi-lang-java="`ddtags`" pulumi-lang-hcl="`ddtags`">`ddtags`</span> field.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Event topics to subscribe to. Omit to receive all topics, including ones Convex adds later. One or more of: <span pulumi-lang-nodejs="`verification`" pulumi-lang-dotnet="`Verification`" pulumi-lang-go="`verification`" pulumi-lang-python="`verification`" pulumi-lang-yaml="`verification`" pulumi-lang-java="`verification`" pulumi-lang-hcl="`verification`">`verification`</span>, <span pulumi-lang-nodejs="`console`" pulumi-lang-dotnet="`Console`" pulumi-lang-go="`console`" pulumi-lang-python="`console`" pulumi-lang-yaml="`console`" pulumi-lang-java="`console`" pulumi-lang-hcl="`console`">`console`</span>, <span pulumi-lang-nodejs="`functionExecution`" pulumi-lang-dotnet="`FunctionExecution`" pulumi-lang-go="`functionExecution`" pulumi-lang-python="`function_execution`" pulumi-lang-yaml="`functionExecution`" pulumi-lang-java="`functionExecution`" pulumi-lang-hcl="`function_execution`">`functionExecution`</span>, <span pulumi-lang-nodejs="`exception`" pulumi-lang-dotnet="`Exception`" pulumi-lang-go="`exception`" pulumi-lang-python="`exception`" pulumi-lang-yaml="`exception`" pulumi-lang-java="`exception`" pulumi-lang-hcl="`exception`">`exception`</span>, <span pulumi-lang-nodejs="`auditLog`" pulumi-lang-dotnet="`AuditLog`" pulumi-lang-go="`auditLog`" pulumi-lang-python="`audit_log`" pulumi-lang-yaml="`auditLog`" pulumi-lang-java="`auditLog`" pulumi-lang-hcl="`audit_log`">`auditLog`</span>, <span pulumi-lang-nodejs="`schedulerStats`" pulumi-lang-dotnet="`SchedulerStats`" pulumi-lang-go="`schedulerStats`" pulumi-lang-python="`scheduler_stats`" pulumi-lang-yaml="`schedulerStats`" pulumi-lang-java="`schedulerStats`" pulumi-lang-hcl="`scheduler_stats`">`schedulerStats`</span>, <span pulumi-lang-nodejs="`scheduledJobLag`" pulumi-lang-dotnet="`ScheduledJobLag`" pulumi-lang-go="`scheduledJobLag`" pulumi-lang-python="`scheduled_job_lag`" pulumi-lang-yaml="`scheduledJobLag`" pulumi-lang-java="`scheduledJobLag`" pulumi-lang-hcl="`scheduled_job_lag`">`scheduledJobLag`</span>, <span pulumi-lang-nodejs="`currentStorageUsage`" pulumi-lang-dotnet="`CurrentStorageUsage`" pulumi-lang-go="`currentStorageUsage`" pulumi-lang-python="`current_storage_usage`" pulumi-lang-yaml="`currentStorageUsage`" pulumi-lang-java="`currentStorageUsage`" pulumi-lang-hcl="`current_storage_usage`">`currentStorageUsage`</span>, <span pulumi-lang-nodejs="`concurrencyStats`" pulumi-lang-dotnet="`ConcurrencyStats`" pulumi-lang-go="`concurrencyStats`" pulumi-lang-python="`concurrency_stats`" pulumi-lang-yaml="`concurrencyStats`" pulumi-lang-java="`concurrencyStats`" pulumi-lang-hcl="`concurrency_stats`">`concurrencyStats`</span>, <span pulumi-lang-nodejs="`storageApiBandwidth`" pulumi-lang-dotnet="`StorageApiBandwidth`" pulumi-lang-go="`storageApiBandwidth`" pulumi-lang-python="`storage_api_bandwidth`" pulumi-lang-yaml="`storageApiBandwidth`" pulumi-lang-java="`storageApiBandwidth`" pulumi-lang-hcl="`storage_api_bandwidth`">`storageApiBandwidth`</span>, <span pulumi-lang-nodejs="`logStreamEgress`" pulumi-lang-dotnet="`LogStreamEgress`" pulumi-lang-go="`logStreamEgress`" pulumi-lang-python="`log_stream_egress`" pulumi-lang-yaml="`logStreamEgress`" pulumi-lang-java="`logStreamEgress`" pulumi-lang-hcl="`log_stream_egress`">`logStreamEgress`</span>, <span pulumi-lang-nodejs="`customAudit`" pulumi-lang-dotnet="`CustomAudit`" pulumi-lang-go="`customAudit`" pulumi-lang-python="`custom_audit`" pulumi-lang-yaml="`customAudit`" pulumi-lang-java="`customAudit`" pulumi-lang-hcl="`custom_audit`">`customAudit`</span>.
+     */
+    topics?: pulumi.Input<pulumi.Input<string>[]>;
+}
+export interface LogStreamPosthogErrorTracking {
+    /**
+     * PostHog project API key. Never returned by the API, so it is kept from configuration and stored in Terraform state.
+     */
+    apiKey?: pulumi.Input<string>;
+    /**
+     * PostHog host, for self-hosted or non-default regions.
+     */
+    host?: pulumi.Input<string>;
+}
+export interface LogStreamPosthogLogs {
+    /**
+     * PostHog project API key. Never returned by the API, so it is kept from configuration and stored in Terraform state.
+     */
+    apiKey?: pulumi.Input<string>;
+    /**
+     * PostHog host, for self-hosted or non-default regions.
+     */
+    host?: pulumi.Input<string>;
+    /**
+     * Service name reported with each event.
+     */
+    serviceName?: pulumi.Input<string>;
+    /**
+     * Event topics to subscribe to. Omit to receive all topics, including ones Convex adds later. One or more of: <span pulumi-lang-nodejs="`verification`" pulumi-lang-dotnet="`Verification`" pulumi-lang-go="`verification`" pulumi-lang-python="`verification`" pulumi-lang-yaml="`verification`" pulumi-lang-java="`verification`" pulumi-lang-hcl="`verification`">`verification`</span>, <span pulumi-lang-nodejs="`console`" pulumi-lang-dotnet="`Console`" pulumi-lang-go="`console`" pulumi-lang-python="`console`" pulumi-lang-yaml="`console`" pulumi-lang-java="`console`" pulumi-lang-hcl="`console`">`console`</span>, <span pulumi-lang-nodejs="`functionExecution`" pulumi-lang-dotnet="`FunctionExecution`" pulumi-lang-go="`functionExecution`" pulumi-lang-python="`function_execution`" pulumi-lang-yaml="`functionExecution`" pulumi-lang-java="`functionExecution`" pulumi-lang-hcl="`function_execution`">`functionExecution`</span>, <span pulumi-lang-nodejs="`exception`" pulumi-lang-dotnet="`Exception`" pulumi-lang-go="`exception`" pulumi-lang-python="`exception`" pulumi-lang-yaml="`exception`" pulumi-lang-java="`exception`" pulumi-lang-hcl="`exception`">`exception`</span>, <span pulumi-lang-nodejs="`auditLog`" pulumi-lang-dotnet="`AuditLog`" pulumi-lang-go="`auditLog`" pulumi-lang-python="`audit_log`" pulumi-lang-yaml="`auditLog`" pulumi-lang-java="`auditLog`" pulumi-lang-hcl="`audit_log`">`auditLog`</span>, <span pulumi-lang-nodejs="`schedulerStats`" pulumi-lang-dotnet="`SchedulerStats`" pulumi-lang-go="`schedulerStats`" pulumi-lang-python="`scheduler_stats`" pulumi-lang-yaml="`schedulerStats`" pulumi-lang-java="`schedulerStats`" pulumi-lang-hcl="`scheduler_stats`">`schedulerStats`</span>, <span pulumi-lang-nodejs="`scheduledJobLag`" pulumi-lang-dotnet="`ScheduledJobLag`" pulumi-lang-go="`scheduledJobLag`" pulumi-lang-python="`scheduled_job_lag`" pulumi-lang-yaml="`scheduledJobLag`" pulumi-lang-java="`scheduledJobLag`" pulumi-lang-hcl="`scheduled_job_lag`">`scheduledJobLag`</span>, <span pulumi-lang-nodejs="`currentStorageUsage`" pulumi-lang-dotnet="`CurrentStorageUsage`" pulumi-lang-go="`currentStorageUsage`" pulumi-lang-python="`current_storage_usage`" pulumi-lang-yaml="`currentStorageUsage`" pulumi-lang-java="`currentStorageUsage`" pulumi-lang-hcl="`current_storage_usage`">`currentStorageUsage`</span>, <span pulumi-lang-nodejs="`concurrencyStats`" pulumi-lang-dotnet="`ConcurrencyStats`" pulumi-lang-go="`concurrencyStats`" pulumi-lang-python="`concurrency_stats`" pulumi-lang-yaml="`concurrencyStats`" pulumi-lang-java="`concurrencyStats`" pulumi-lang-hcl="`concurrency_stats`">`concurrencyStats`</span>, <span pulumi-lang-nodejs="`storageApiBandwidth`" pulumi-lang-dotnet="`StorageApiBandwidth`" pulumi-lang-go="`storageApiBandwidth`" pulumi-lang-python="`storage_api_bandwidth`" pulumi-lang-yaml="`storageApiBandwidth`" pulumi-lang-java="`storageApiBandwidth`" pulumi-lang-hcl="`storage_api_bandwidth`">`storageApiBandwidth`</span>, <span pulumi-lang-nodejs="`logStreamEgress`" pulumi-lang-dotnet="`LogStreamEgress`" pulumi-lang-go="`logStreamEgress`" pulumi-lang-python="`log_stream_egress`" pulumi-lang-yaml="`logStreamEgress`" pulumi-lang-java="`logStreamEgress`" pulumi-lang-hcl="`log_stream_egress`">`logStreamEgress`</span>, <span pulumi-lang-nodejs="`customAudit`" pulumi-lang-dotnet="`CustomAudit`" pulumi-lang-go="`customAudit`" pulumi-lang-python="`custom_audit`" pulumi-lang-yaml="`customAudit`" pulumi-lang-java="`customAudit`" pulumi-lang-hcl="`custom_audit`">`customAudit`</span>.
+     */
+    topics?: pulumi.Input<pulumi.Input<string>[]>;
+}
+export interface LogStreamSentry {
+    /**
+     * Sentry DSN. Never returned by the API, so it is kept from configuration and stored in Terraform state.
+     */
+    dsn?: pulumi.Input<string>;
+    /**
+     * Tags added to every event routed to Sentry.
+     */
+    tags?: pulumi.Input<{
+        [key: string]: pulumi.Input<string>;
+    }>;
+}
+export interface LogStreamWebhook {
+    /**
+     * Payload encoding, <span pulumi-lang-nodejs="`json`" pulumi-lang-dotnet="`Json`" pulumi-lang-go="`json`" pulumi-lang-python="`json`" pulumi-lang-yaml="`json`" pulumi-lang-java="`json`" pulumi-lang-hcl="`json`">`json`</span> or <span pulumi-lang-nodejs="`jsonl`" pulumi-lang-dotnet="`Jsonl`" pulumi-lang-go="`jsonl`" pulumi-lang-python="`jsonl`" pulumi-lang-yaml="`jsonl`" pulumi-lang-java="`jsonl`" pulumi-lang-hcl="`jsonl`">`jsonl`</span>.
+     */
+    format?: pulumi.Input<string>;
+    /**
+     * Secret Convex signs each request with, so the receiver can verify the payload. Generated at creation and stored in Terraform state.
+     */
+    hmacSecret?: pulumi.Input<string>;
+    /**
+     * Event topics to subscribe to. Omit to receive all topics, including ones Convex adds later. One or more of: <span pulumi-lang-nodejs="`verification`" pulumi-lang-dotnet="`Verification`" pulumi-lang-go="`verification`" pulumi-lang-python="`verification`" pulumi-lang-yaml="`verification`" pulumi-lang-java="`verification`" pulumi-lang-hcl="`verification`">`verification`</span>, <span pulumi-lang-nodejs="`console`" pulumi-lang-dotnet="`Console`" pulumi-lang-go="`console`" pulumi-lang-python="`console`" pulumi-lang-yaml="`console`" pulumi-lang-java="`console`" pulumi-lang-hcl="`console`">`console`</span>, <span pulumi-lang-nodejs="`functionExecution`" pulumi-lang-dotnet="`FunctionExecution`" pulumi-lang-go="`functionExecution`" pulumi-lang-python="`function_execution`" pulumi-lang-yaml="`functionExecution`" pulumi-lang-java="`functionExecution`" pulumi-lang-hcl="`function_execution`">`functionExecution`</span>, <span pulumi-lang-nodejs="`exception`" pulumi-lang-dotnet="`Exception`" pulumi-lang-go="`exception`" pulumi-lang-python="`exception`" pulumi-lang-yaml="`exception`" pulumi-lang-java="`exception`" pulumi-lang-hcl="`exception`">`exception`</span>, <span pulumi-lang-nodejs="`auditLog`" pulumi-lang-dotnet="`AuditLog`" pulumi-lang-go="`auditLog`" pulumi-lang-python="`audit_log`" pulumi-lang-yaml="`auditLog`" pulumi-lang-java="`auditLog`" pulumi-lang-hcl="`audit_log`">`auditLog`</span>, <span pulumi-lang-nodejs="`schedulerStats`" pulumi-lang-dotnet="`SchedulerStats`" pulumi-lang-go="`schedulerStats`" pulumi-lang-python="`scheduler_stats`" pulumi-lang-yaml="`schedulerStats`" pulumi-lang-java="`schedulerStats`" pulumi-lang-hcl="`scheduler_stats`">`schedulerStats`</span>, <span pulumi-lang-nodejs="`scheduledJobLag`" pulumi-lang-dotnet="`ScheduledJobLag`" pulumi-lang-go="`scheduledJobLag`" pulumi-lang-python="`scheduled_job_lag`" pulumi-lang-yaml="`scheduledJobLag`" pulumi-lang-java="`scheduledJobLag`" pulumi-lang-hcl="`scheduled_job_lag`">`scheduledJobLag`</span>, <span pulumi-lang-nodejs="`currentStorageUsage`" pulumi-lang-dotnet="`CurrentStorageUsage`" pulumi-lang-go="`currentStorageUsage`" pulumi-lang-python="`current_storage_usage`" pulumi-lang-yaml="`currentStorageUsage`" pulumi-lang-java="`currentStorageUsage`" pulumi-lang-hcl="`current_storage_usage`">`currentStorageUsage`</span>, <span pulumi-lang-nodejs="`concurrencyStats`" pulumi-lang-dotnet="`ConcurrencyStats`" pulumi-lang-go="`concurrencyStats`" pulumi-lang-python="`concurrency_stats`" pulumi-lang-yaml="`concurrencyStats`" pulumi-lang-java="`concurrencyStats`" pulumi-lang-hcl="`concurrency_stats`">`concurrencyStats`</span>, <span pulumi-lang-nodejs="`storageApiBandwidth`" pulumi-lang-dotnet="`StorageApiBandwidth`" pulumi-lang-go="`storageApiBandwidth`" pulumi-lang-python="`storage_api_bandwidth`" pulumi-lang-yaml="`storageApiBandwidth`" pulumi-lang-java="`storageApiBandwidth`" pulumi-lang-hcl="`storage_api_bandwidth`">`storageApiBandwidth`</span>, <span pulumi-lang-nodejs="`logStreamEgress`" pulumi-lang-dotnet="`LogStreamEgress`" pulumi-lang-go="`logStreamEgress`" pulumi-lang-python="`log_stream_egress`" pulumi-lang-yaml="`logStreamEgress`" pulumi-lang-java="`logStreamEgress`" pulumi-lang-hcl="`log_stream_egress`">`logStreamEgress`</span>, <span pulumi-lang-nodejs="`customAudit`" pulumi-lang-dotnet="`CustomAudit`" pulumi-lang-go="`customAudit`" pulumi-lang-python="`custom_audit`" pulumi-lang-yaml="`customAudit`" pulumi-lang-java="`customAudit`" pulumi-lang-hcl="`custom_audit`">`customAudit`</span>.
+     */
+    topics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL that receives the POST requests.
+     */
+    url?: pulumi.Input<string>;
+}
